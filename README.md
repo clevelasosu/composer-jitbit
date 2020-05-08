@@ -15,7 +15,7 @@ $client = new GuzzleHttp\Client([
 $jitbit = new \OSUCOE\JitBit\API($client);
 
 $category = new \OSUCOE\JitBit\Category($jitbit, 'FIRST \ Sub Category');
-$ticketID = \OSUCOE\JitBit\Ticket::createNew($jitbit, 'testapi2', 'body', $category->CategoryID);
+$ticketID = \OSUCOE\JitBit\Ticket::createNew($jitbit, 'testapi2', 'body', $category->ID);
 
 $ticket = new \OSUCOE\JitBit\Ticket($jitbit, $ticketID);
 

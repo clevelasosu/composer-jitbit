@@ -13,7 +13,7 @@ class Category
     protected $api;
     protected $categoryDetails;
     protected $NameWithSection;
-    protected $CategoryID;
+    protected $ID;
 
     /**
      * Category constructor.
@@ -37,7 +37,7 @@ class Category
         foreach ($categories as $category) {
             if ($this->NameWithSection == $category->NameWithSection) {
                 $this->categoryDetails = $category;
-                $this->CategoryID = $category->CategoryID;
+                $this->ID = $category->CategoryID;
                 return;
             }
         }
