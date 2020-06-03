@@ -41,6 +41,10 @@ class Ticket extends Generic
     {
         $this->ID = $TicketID;
         parent::__construct($api);
+        if (!$this->details) {
+            throw new TicketNotFoundException("Ticket not found: $TicketID");
+        }
+
     }
 
     /**

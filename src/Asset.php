@@ -69,6 +69,10 @@ class Asset extends Generic
     {
         $this->ID = $ItemID;
         parent::__construct($api);
+        if (!$this->details) {
+            throw new AssetNotFoundException("Asset not found: $ItemID");
+        }
+
     }
 
     /**

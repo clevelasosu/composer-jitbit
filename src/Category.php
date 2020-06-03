@@ -41,7 +41,7 @@ class Category
                 return;
             }
         }
-        throw new JitBitException("Unable to find matching category");
+        throw new CategoryNotFoundException("Unable to find matching category");
     }
 
     /**

@@ -64,11 +64,15 @@ class User extends Generic
      * User constructor.
      * @param API $api
      * @param $Username
+     * @throws UserNotFoundException
      */
     public function __construct(API $api, string $Username)
     {
         $this->Username = $Username;
         parent::__construct($api);
+        if (!$this->details) {
+            throw new UserNotFoundException("User not found: $Username");
+        }
     }
 
     /**
@@ -119,7 +123,9 @@ class User extends Generic
     protected function refresh()
     {
         parent::refresh();
-        $this->ID = $this->details->UserID;
+        if (isset($this->details->UserID)) {
+            $this->ID = $this->details->UserID;
+        }
     }
 
 }
