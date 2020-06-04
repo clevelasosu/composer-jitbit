@@ -1,7 +1,20 @@
 # OSUCOE JitBit package
 
-## Usage
+## Install
+run `composer init`
+In composer.json, add the repository:
 
+```composer log
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/clevelasosu/composer-jitbit"
+    }
+  ]
+```
+Then run `composer install osucoe/jitbit`
+
+## Usage
 ```php
 $client = new GuzzleHttp\Client([
     'base_uri' => 'https://helpdesk.url.com',
