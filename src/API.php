@@ -6,6 +6,7 @@ namespace OSUCOE\JitBit;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Exception\BadResponseException;
+use Exception;
 
 class API
 {
@@ -44,9 +45,15 @@ class API
             if (isset($body->Errors)) {
                 throw new JitBitException($body->Errors->description, $body->Errors->code, $e);
             } else {
-                throw new JitBitException($e->getMessage(), $e->getCode(), $e);
+                switch($e->getCode()) {
+                    case 429:
+                        // Too many requests
+                        throw new RateLimitException($e->getMessage(), $e->getCode(), $e);
+                    default:
+                        throw new JitBitException($e->getMessage(), $e->getCode(), $e);
+                }
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             throw new JitBitException($e->getMessage(), $e->getCode(), $e);
         }
 
