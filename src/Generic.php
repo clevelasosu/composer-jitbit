@@ -87,7 +87,7 @@ class Generic
      */
     protected function updateField($field, $value)
     {
-        echo "Field: ".$field.PHP_EOL;
+//        echo "Field: ".$field.PHP_EOL;
         if (!in_array($field, $this->updateableFields)) {
             throw new JitBitException('Invalid Field Given');
         }

@@ -31,6 +31,7 @@ class User extends Generic
 //        'CompanyName',
         'FirstName',
         'LastName',
+        'Email',
         'Disabled',
         'Location',
         'Phone',
